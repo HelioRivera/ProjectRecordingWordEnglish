@@ -32,3 +32,9 @@ def elimina_palabra(request):
     pass
 
 
+def desactiva_palabra(request):
+    pass
+
+
+
+
