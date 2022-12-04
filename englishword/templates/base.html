@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.101.0">
+        <title>Recording Word</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    </head>
+    <body>
+        <!-- begin barra de navegacion -->
+        <nav class="navbar navbar-expand-lg bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">WordsRecord</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Gestiona tus palabras
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Agregar</a></li>
+                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Modificar</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled">Disabled</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="buscapalabras" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+        <!-- end barra de navegacion -->
+
+        <!-- begin registro de palabras y su traduccion -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                <!-- end registro de palabras y su traduccion -->
+                <h3>Tu listado de palabras:</h3>
+                <table class="table">
+            <thead>
+              <tr>
+                <th>Palabra</th>
+                <th>Tipo</th>
+                <th>Significado</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for palabra in lista_palabras %}
+                    <tr>
+                        <td>{{ palabra.palabra }}</td>
+                        <td>{{ palabra.tipo_palabra }}</td>
+                        <td>{{ palabra.significado }}</td>
+                    </tr>
+                {% endfor  %}
+            </tbody>
+          </table>
+                <!-- begin pie del sitio -->
+                </div>
+                <div class="col">
+                    <!-- begin formulario de ingreso de palabras -->
+                    <h3> Agrega una palabra:</h3>
+                    <form class="row g-3" action="" method="POST">
+                      <div class="col-md-3">
+                        <label for="validationDefault04" class="form-label">Tipo</label>
+                        <select class="form-select" id="validationDefault04" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option>Verb</option>
+                          <option>Noun</option>
+                          <option>Preposition</option>
+                          <option>AdVerb</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Palabra</label>
+                        <input type="text" class="form-control" id="validationDefault02" value="" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="validationDefault02" class="form-label">Traduccion</label>
+                        <input type="text" class="form-control" id="validationDefault02" value="" required>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Agregar</button>
+                      </div>
+                    </form>
+                    <!-- end formulario de ingreso de palabras -->
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">2022 MariaSoft&copy;, Inc</p>
+        </footer>
+        <!-- end pie del sitio -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    </body>
+</html>

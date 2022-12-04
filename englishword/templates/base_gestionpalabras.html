@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+{% block listar_palabras %}
+    <h1>Listado de palabras</h1>
+    {% for palabra in lista_palabras %}
+        <p>{{ palabra.palabra }}</p>
+        <p>{{  palabra.traduccion }}</p>
+    {% endfor  %}
+{% endblock listar_palabras %}
+
