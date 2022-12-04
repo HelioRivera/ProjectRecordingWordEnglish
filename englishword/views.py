@@ -27,3 +27,8 @@ def inserta_palabra(request):
         # Create a form instance and populate it with data from the request (binding):
         form = InsertaPalabras(request.POST)
 
+
+def elimina_palabra(request):
+    pass
+
+
